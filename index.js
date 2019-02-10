@@ -9020,3 +9020,14 @@ const openIssues = issues.reduce((openIssues, issue) => {
 
   return openIssues;
 }, []);
+
+
+const nonAutomaticIssues = issues.reduce((totalIssues, issue) => {
+  const isAutomaticIssue = issue.body.includes('automatically created by learn.co');
+
+  if (!isAutomaticIssue) {
+    totalIssues.push(issue);
+  }
+
+  return totalIssues;
+}, []);
